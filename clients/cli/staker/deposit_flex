@@ -1,0 +1,9 @@
+#!/usr/bin/env -S deno run -A --ext ts
+
+import { signAndSubmit } from "../../../offchain/common/wallet.ts";
+import { init } from "../common.ts";
+
+const [lucid, txBuilder] = await init();
+
+const tx = await txBuilder.depositFlex(1000n);
+await signAndSubmit(lucid, tx);

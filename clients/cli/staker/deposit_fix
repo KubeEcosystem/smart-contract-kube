@@ -1,0 +1,41 @@
+#!/usr/bin/env -S deno run -A --ext ts
+
+import { signAndSubmit } from "../../../offchain/common/wallet.ts";
+import { VALID_TO_ADD } from "../../../offchain/tx/mod.ts";
+import { init } from "../common.ts";
+
+const [lucid, txBuilder] = await init();
+
+type CliArgs = {
+  amount: number;
+  duration: number;
+}
+
+function readArgs(): CliArgs {
+  const amountStr = Deno.args[0];
+  const durationStr = Deno.args[1];
+  return {
+    amount: parseInt(amountStr),
+    duration: parseInt(durationStr)
+  }
+}
+
+const args = readArgs();
+
+console.log('args: ', args);
+
+const valid_to = Date.now() + VALID_TO_ADD;
+const deposit_start = valid_to + 1;
+const deposit_end = deposit_start + args.duration;
+
+console.log({
+  valid_to,
+  deposit_start,
+  chack1: deposit_start - valid_to,
+  duration: args.duration,
+  deposit_end,
+  check2: deposit_end - args.duration - valid_to
+})
+
+const tx = await txBuilder.depositFix(BigInt(args.amount), deposit_end, deposit_start);
+await signAndSubmit(lucid, tx);

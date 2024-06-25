@@ -1,0 +1,21 @@
+#!/usr/bin/env -S deno run -A --ext ts
+
+import { signAndSubmit } from "../../../offchain/common/wallet.ts";
+import { init } from "../common.ts";
+
+const [lucid, txBuilder] = await init();
+
+function readArgs(): bigint {
+  const arg0 = Deno.args[0];
+  return arg0 ? BigInt(arg0) : 1000n;
+}
+
+const publicKeyHash = lucid.utils
+  .getAddressDetails(await lucid.wallet.address())
+  .paymentCredential!.hash;
+
+const amount = readArgs();
+
+const tx = await txBuilder.allocate(amount, publicKeyHash);
+
+await signAndSubmit(lucid, tx);

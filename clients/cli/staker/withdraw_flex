@@ -1,0 +1,12 @@
+#!/usr/bin/env -S deno run -A --ext ts
+
+import { signAndSubmit } from "../../../offchain/common/wallet.ts";
+import { init } from "../common.ts";
+
+const [lucid, txBuilder] = await init();
+
+const tx = await txBuilder.withdrawFlex(
+  await lucid.wallet.address(),
+  "3a08fab67db19d2c2000e27a340e4c6ba02f8197b51c5678bb4b61b590aaaa92#0",
+);
+await signAndSubmit(lucid, tx);

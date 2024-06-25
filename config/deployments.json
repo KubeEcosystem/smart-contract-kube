@@ -1,0 +1,51 @@
+{
+  "preview": [
+    {
+      "network": "preview",
+      "date": "2024-06-05T11:48:55.540Z",
+      "apyParams": {
+        "fix_tiers": [
+          {
+            "max_duration_secs": "5",
+            "apy": "315360000"
+          },
+          {
+            "max_duration_secs": "10",
+            "apy": "630720000"
+          },
+          {
+            "max_duration_secs": "15",
+            "apy": "946080000"
+          }
+        ],
+        "flex_apy": "315360000"
+      },
+      "asset": "6c58d80cbd21c426bec657f5728b55602fbeeb18dc78dfea050f90b24b554b45434f494e",
+      "depositRef": "0ba88fe1d823c8cc5e0ebe20782633333a92d971545928eb42cfd6a720b1a898",
+      "bankRef": "4c24bcf8f27dedfb01169c6e6731b06aac04389e6b77e6c2f1f54b60829c5531"
+    }
+  ],
+  "preprod": [
+    {
+      "network": "preprod",
+      "date": "2024-06-17T10:15:09.765Z",
+      "apyParams": {
+        "fix_tiers": [
+          {
+            "max_duration_secs": "360",
+            "apy": "777"
+          },
+          {
+            "max_duration_secs": "720",
+            "apy": "1050"
+          }
+        ],
+        "flex_apy": "350"
+      },
+      "asset": "6c58d80cbd21c426bec657f5728b55602fbeeb18dc78dfea050f90b24b554b45434f494e",
+      "depositRef": "5396a454f52e5247d29e093b1a7414541a1644ac7117c1931f9127a1217858f8",
+      "bankRef": "1f83ee064ed68a26e6871573640e884cad0149777d27160d9a20a6302d6aa8d0"
+    }
+  ],
+  "mainnet": []
+}
