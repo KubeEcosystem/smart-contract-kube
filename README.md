@@ -4,3 +4,7 @@ Repository contains the smart contracts supporting incentive program for KUBE to
 
 - [KUBE Staking Program Details](./docs/1-staking-rules.md)
 - [Smart Contracts Design](./docs/2-smart-contracts-design.md)
+- [Reallocate-checks](./docs/reallocation-checks.md)
+
+The signing transaction class is in [Sign Transactions Class](./config/create_tx_builder.ts). 
+There is where all the classes and functionalities to use and sign transactions are specified.
